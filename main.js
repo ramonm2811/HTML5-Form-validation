@@ -10,6 +10,7 @@ const city = document.getElementById("city");
 const state = document.getElementById("state");
 const postalCode = document.getElementById("postalCode");
 const button = document.getElementById("button");
+const cancel = document.getElementById("cancel");
 const textArea = document.getElementById("textArea");
 const inputs = [
   card,
