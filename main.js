@@ -79,6 +79,7 @@ const postalCode = document.getElementById("postalCode");
 const button = document.getElementById("button");
 const cancel = document.getElementById("cancel");
 const textArea = document.getElementById("textArea");
+let error = false;
 const inputs = [
   card,
   cvc,
@@ -95,19 +96,13 @@ const inputs = [
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   checkInputs();
+  if(!hasError){
+ form.submit();
+}
 });
 
 //-------------------------------------------------Check Inputs--------------------------------------------------------------------------
 function checkInputs() {
-  const cardValue = card.value.trim();
-  const cvcValue = cvc.value.trim();
-  const amountValue = amount.value.trim();
-  const firstNameValue = firstName.value.trim();
-  const lastNamValuee = lastName.value.trim();
-  const cityValue = city.value.trim();
-  const stateValue = state.value.trim();
-  const postalCodeValue = postalCode.value.trim();
-
   for (let i = 0; i <= inputs.length; i++) {
     if (inputs[i].value.trim() == "") {
       setErrorFor(inputs[i]);
@@ -122,6 +117,7 @@ function setErrorFor(input) {
   input.style.backgroundColor = "#f8d7da";
   input.style.borderColor = "#f5c2c7";
   alert.style.display = "block";
+  error = true;
 }
 
 //--------------------------------------------------------------------------Function Success------------------------------------------------------
